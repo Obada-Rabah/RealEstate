@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Partners | Real Estate & Legal Excellence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* === GLOBAL STYLES === */
+        :root {
+            --primary: #0A2342;  /* Deep navy blue */
+            --secondary: #2C4D6E; /* Medium blue */
+            --accent: #F0B323;   /* Gold accent */
+            --light-accent: #F8F1E5; /* Cream background */
+            --dark: #1A1A1A;
+            --light: #FFFFFF;
+            --text: #333333;
+            --gray: #6D7278;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text);
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent);
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            background: #E0A61B;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+        
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 20px auto;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* === HEADER / NAVBAR === */
+        header {
+            position: fixed;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-links li:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links li:hover:after {
+            width: 100%;
+        }
+        
+        /* === HERO SECTION === */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(rgba(10, 35, 66, 0.85), rgba(10, 35, 66, 0.85)), 
+                        url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        /* === PARTNERSHIP SECTION === */
+        .partnership {
+            background: var(--light-accent);
+        }
+        
+        .partnership-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .partnership-text {
+            flex: 1;
+        }
+        
+        .partnership-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+        
+        .partnership-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: var(--text);
+        }
+        
+        .partnership-logos {
+            flex: 1;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .partnership-logos img {
+            max-width: 180px;
+            height: auto;
+            filter: grayscale(100%) contrast(120%);
+            transition: all 0.3s ease;
+        }
+        
+        .partnership-logos img:hover {
+            filter: grayscale(0);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* === SERVICES SECTION === */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .service-img:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .service-content p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+            color: var(--text);
+        }
+        
+        /* === PROPERTIES SECTION === */
+        .properties {
+            background: var(--light-accent);
+        }
+        
+        .properties-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 30px;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .properties-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .properties-slider::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        .properties-slider::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+        
+        .property-card {
+            min-width: 350px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            scroll-snap-align: start;
+            transition: transform 0.3s ease;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .property-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .property-details {
+            padding: 25px;
+        }
+        
+        .property-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .property-location {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .property-location i {
+            margin-right: 5px;
+            color: var(--accent);
+        }
+        
+        .property-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .property-features {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .property-features span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .property-features i {
+            color: var(--accent);
+        }
+        
+        /* === CONTACT SECTION === */
+        .contact {
+            background: linear-gradient(rgba(10, 35, 66, 0.9), rgba(10, 35, 66, 0.9)), 
+                        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        
+        .contact h2 {
+            color: white;
+        }
+        
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: white;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* === FOOTER === */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column p, .footer-column a {
+            margin-bottom: 12px;
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            line-height: 1.6;
+        }
+        
+        .footer-column a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .footer-contact-info {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact-info i {
+            color: var(--accent);
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 992px) {
+            .partnership-content {
+                flex-direction: column;
+            }
+            
+            .partnership-logos {
+                margin-top: 40px;
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 70px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+            
+            .navbar {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links li {
+                margin: 0 15px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .service-card, .property-card {
+                min-width: 100%;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <img src="https://via.placeholder.com/40x40?text=EP" alt="Elite Partners Logo">
+                    ELITE<span>PARTNERS</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#partnership">Partnership</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#properties">Properties</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Strategic Real Estate Solutions with Legal Assurance</h1>
+                <p>Our unique partnership model combines [Your Company]'s real estate expertise with Al-Arabia for Law's legal excellence, delivering comprehensive property services with unmatched professionalism and efficiency.</p>
+                <div class="hero-btns">
+                    <a href="#properties" class="btn">View Properties</a>
+                    <a href="#contact" class="btn btn-outline">Request Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Section -->
+    <section class="section partnership" id="partnership">
+        <div class="container">
+            <h2 class="section-title">Our Strategic Partnership</h2>
+            <div class="partnership-content">
+                <div class="partnership-text">
+                    <h2>Integrated Expertise, Exceptional Results</h2>
+                    <p>In today's complex real estate market, having both property expertise and legal assurance is essential. Rather than establishing a traditional legal real estate company, we've created a powerful alliance between two specialized firms.</p>
+                    <p>This innovative approach allows us to provide clients with:</p>
+                    <ul style="margin: 20px 0 30px 20px; line-height: 1.8;">
+                        <li>Deep specialization in both real estate and legal services</li>
+                        <li>Streamlined processes without bureaucratic delays</li>
+                        <li>Flexible service combinations tailored to each client</li>
+                        <li>Cost-effective solutions with transparent pricing</li>
+                    </ul>
+                    <a href="#contact" class="btn">Schedule a Consultation</a>
+                </div>
+                <div class="partnership-logos">
+                    <img src="https://via.placeholder.com/180x80?text=Your+Company" alt="Your Company Logo">
+                    <img src="https://via.placeholder.com/180x80?text=Al-Arabia+Law" alt="Al-Arabia for Law Logo">
+                </div>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Seamless Collaboration</h3>
+                    <p>Our integrated teams work together to ensure every transaction benefits from both real estate and legal perspectives from day one.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Risk Mitigation</h3>
+                    <p>Legal review is built into every step of our process, protecting your interests throughout the transaction.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Efficient Process</h3>
+                    <p>By eliminating internal bureaucracy, we deliver faster results without compromising quality or due diligence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Comprehensive Services</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 50px; color: var(--text);">We offer a complete range of real estate services with integrated legal support through our partnership with Al-Arabia for Law.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Residential Property Sales</h3>
+                        <p>Expert guidance through every step of buying or selling your home, with legal contract review and negotiation support included.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Commercial Real Estate</h3>
+                        <p>Strategic advisory for office, retail, and industrial properties, with legal due diligence and lease agreement review.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Investment Advisory</h3>
+                        <p>Data-driven investment strategies with legal structuring advice to maximize returns and minimize tax liabilities.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section class="section properties" id="properties">
+        <div class="container">
+            <h2 class="section-title">Featured Properties</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 50px; color: var(--text);">Explore our curated selection of premium properties, each transaction supported by our legal partnership.</p>
+            
+            <div class="properties-slider">
+                <div class="property-card">
+                    <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80');"></div>
+                    <div class="property-details">
+                        <h3>Palm Jumeirah Villa</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i> Palm Jumeirah, Dubai
+                        </div>
+                        <div class="property-price">AED 12,500,000</div>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 5 Bedrooms</span>
+                            <span><i class="fas fa-bath"></i> 6 Bathrooms</span>
+                            <span><i class="fas fa-vector-square"></i> 5,200 sq.ft</span>
+                        </div>
+                        <p>Luxury beachfront villa with private pool, panoramic sea views, and smart home technology.</p>
+                        <a href="#contact" class="btn" style="width: 100%; text-align: center;">Arrange Viewing</a>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80');"></div>
+                    <div class="property-details">
+                        <h3>Downtown Penthouse</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i> Downtown Dubai
+                        </div>
+                        <div class="property-price">AED 8,900,000</div>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 Bedrooms</span>
+                            <span><i class="fas fa-bath"></i> 3 Bathrooms</span>
+                            <span><i class="fas fa-vector-square"></i> 3,800 sq.ft</span>
+                        </div>
+                        <p>Stunning penthouse with direct Burj Khalifa views, premium finishes, and 24/7 concierge.</p>
+                        <a href="#contact" class="btn" style="width: 100%; text-align: center;">Arrange Viewing</a>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1605146769289-440113cc3d00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80');"></div>
+                    <div class="property-details">
+                        <h3>Emirates Hills Mansion</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i> Emirates Hills
+                        </div>
+                        <div class="property-price">AED 25,000,000</div>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 7 Bedrooms</span>
+                            <span><i class="fas fa-bath"></i> 8 Bathrooms</span>
+                            <span><i class="fas fa-vector-square"></i> 12,000 sq.ft</span>
+                        </div>
+                        <p>Exclusive gated community mansion with landscaped gardens, home theater, and staff quarters.</p>
+                        <a href="#contact" class="btn" style="width: 100%; text-align: center;">Arrange Viewing</a>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80');"></div>
+                    <div class="property-details">
+                        <h3>Jumeirah Golf Estate</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i> Jumeirah Golf Estates
+                        </div>
+                        <div class="property-price">AED 18,750,000</div>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 6 Bedrooms</span>
+                            <span><i class="fas fa-bath"></i> 7 Bathrooms</span>
+                            <span><i class="fas fa-vector-square"></i> 9,500 sq.ft</span>
+                        </div>
+                        <p>Luxury golf course villa with private spa, home gym, and panoramic views of the greens.</p>
+                        <a href="#contact" class="btn" style="width: 100%; text-align: center;">Arrange Viewing</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Our Team</h2>
+            <p class="text-center" style="max-width: 700px; margin: 0 auto 50px; color: rgba(255,255,255,0.9);">Ready to discuss your real estate needs with legal assurance? Complete the form below and our team will contact you within 24 hours.</p>
+            
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">Service Interest</label>
+                        <select id="interest">
+                            <option value="">Select service of interest</option>
+                            <option value="residential">Residential Property</option>
+                            <option value="commercial">Commercial Property</option>
+                            <option value="investment">Investment Advisory</option>
+                            <option value="legal">Legal Services</option>
+                            <option value="other">Other Enquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" rows="5" placeholder="Tell us about your requirements"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Our Partnership</h3>
+                    <p>The strategic alliance between [Your Company] and Al-Arabia for Law delivers comprehensive real estate services with integrated legal assurance, offering clients the best of both specialties.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#partnership">Our Partnership</a>
+                    <a href="#services">Services</a>
+                    <a href="#properties">Properties</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <a href="#services">Residential Sales</a>
+                    <a href="#services">Commercial Leasing</a>
+                    <a href="#services">Investment Advisory</a>
+                    <a href="#services">Legal Support</a>
+                    <a href="#services">Property Management</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="footer-contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Office 1204, Marina Plaza, Dubai Marina, Dubai, UAE</p>
+                    </div>
+                    <div class="footer-contact-info">
+                        <i class="fas fa-phone"></i>
+                        <p>+971 4 123 4567</p>
+                    </div>
+                    <div class="footer-contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@elitepartners.ae</p>
+                    </div>
+                    <div class="footer-contact-info">
+                        <i class="fas fa-clock"></i>
+                        <p>Sunday - Thursday: 9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Elite Partners Real Estate. All Rights Reserved. | In partnership with Al-Arabia for Law</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Form submission (placeholder)
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your enquiry. Our team will contact you shortly.');
+            form.reset();
+        });
+    </script>
+</body>
+</html>

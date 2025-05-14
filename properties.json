@@ -1,0 +1,24 @@
+[
+    {
+      "type": "land",
+      "title": "أرض تجارية في المزة",
+      "location": "دمشق – المزة",
+      "price": "950,000,000 ل.س",
+      "image": "https://images.unsplash.com/photo-1581092334654-86f89377e5d1?auto=format&fit=crop&w=1800&q=80",
+      "description": "أرض ممتازة للاستثمار التجاري بالقرب من المحاور الرئيسية، مع إشارات قانونية نظيفة."
+    },
+    {
+      "type": "property",
+      "title": "فيلا نخلة جميرا",
+      "location": "نخلة جميرا، دبي",
+      "price": "12,500,000 درهم",
+      "image": "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=1800&q=80",
+      "features": {
+        "bedrooms": 5,
+        "bathrooms": 6,
+        "area": "5,200 قدم مربع"
+      },
+      "description": "فيلا فاخرة مطلة على الشاطئ مع مسبح خاص، إطلالات بانورامية على البحر وتقنية المنزل الذكي."
+    }
+  ]
+  
